@@ -4,5 +4,5 @@ export type Group = {
         title: string;
         description?: string;
         imageURL?: string;
-    }[]
-}
+    }[];
+};

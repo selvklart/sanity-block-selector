@@ -1,0 +1,82 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended",
+		"plugin:prettier/recommended",
+		"plugin:tailwindcss/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:jsx-a11y/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"@typescript-eslint",
+		"prettier",
+		"react",
+		"react-hooks",
+		"tailwindcss",
+		"simple-import-sort"
+	],
+	"ignorePatterns": ["dev-dist/**/*.*", "dist/**/*.*", "node_modules/**/*.*"],
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"rules": {
+		"prettier/prettier": [
+			"error",
+			{
+				"tabs": true,
+				"tabWidth": 4,
+				"bracketSpacing": false,
+				"endOfLine": "auto",
+				"printWidth": 100,
+				"semi": true,
+				"singleQuote": true
+			}
+		],
+		"@typescript-eslint/consistent-type-imports": "error",
+		// disabled tailwindcss/no-custom-classname because it isn't loading the tailwind.config.js file
+		"tailwindcss/no-custom-classname": "off",
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{
+				"varsIgnorePattern": "^_.*$"
+			}
+		],
+		"simple-import-sort/imports": [
+			"error",
+			{
+				"groups": [
+					// Packages `react` related packages come first.
+					["^react", "^@?\\w"],
+					// Internal packages.
+					["^(@|components)(/.*|$)"],
+					// Side effect imports.
+					["^\\u0000"],
+					// Parent imports. Put `..` last.
+					["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+					// Other relative imports. Put same-folder imports and `.` last.
+					["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+					// Style imports.
+					["^.+\\.?(css)$"]
+				]
+			}
+		],
+		"simple-import-sort/exports": "error",
+		"react/react-in-jsx-scope": "off"
+	}
+}

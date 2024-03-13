@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "react-cosmos-plugin-vite"
+    "react-cosmos-plugin-vite",
+    "react-cosmos-plugin-boolean-input"
   ],
   "vite": {
     "indexPath": "cosmos/main.tsx"

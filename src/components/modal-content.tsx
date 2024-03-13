@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { Accordion } from "./list-container";
-import { Search } from "./search";
-import { Group } from "./types.d";
-import { cn } from "./utils";
+import {useState} from 'react';
+
+import type {Group} from '../types.d';
+
+import {Accordion} from './accordion';
+import {Search} from './search';
 
 interface Props {
     groups: Group[];
@@ -16,9 +17,4 @@ export const ModalContent = ({groups}: Props) => {
             <Accordion groups={groups} />
         </>
     );
-}
-
-
-
-
-
+};

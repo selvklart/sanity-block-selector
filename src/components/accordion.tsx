@@ -1,5 +1,7 @@
-import { AccordionTab } from "./accordion-tab";
-import { Group } from "./types.d";
+import type {Group} from '../types.d';
+import {cn} from '../utils';
+
+import {AccordionTab} from './accordion-tab';
 
 interface Props {
     groups: Group[];
@@ -7,23 +9,13 @@ interface Props {
 
 export const Accordion = ({groups}: Props) => {
     return (
-		<dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
-			{groups.map((group) => (
-				<AccordionTab
-					key={group.title}
-					group={group}
-					onClick={() => {}}
-				/>
-			))}
-		</dl>
+        <dl className={cn('mt-10', 'space-y-6', 'divide-y', 'divide-gray-900/10')}>
+            {groups.map((group) => (
+                <AccordionTab key={group.title} group={group} onClick={() => {}} />
+            ))}
+        </dl>
     );
-}
-
-
-
-
-
-
+};
 
 /* import React, {useEffect, useId, useState} from 'react';
 import {PatchEvent, PortableTextInputProps, SchemaTypeDefinition, set} from 'sanity';

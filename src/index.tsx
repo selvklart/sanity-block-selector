@@ -1,2 +1,2 @@
 import './index.css';
-export {ModalContent} from './modal-content';
+export {ModalContent} from './components/modal-content';
