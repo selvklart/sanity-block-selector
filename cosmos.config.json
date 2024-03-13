@@ -1,5 +1,5 @@
 {
-  "globalImports": ["src/global.css"],
+  "globalImports": ["cosmos/global.css"],
   "plugins": [
     "react-cosmos-plugin-vite"
   ]
