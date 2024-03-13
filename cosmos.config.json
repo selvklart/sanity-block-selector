@@ -1,6 +1,8 @@
 {
-  "globalImports": ["cosmos/global.css"],
   "plugins": [
     "react-cosmos-plugin-vite"
-  ]
+  ],
+  "vite": {
+    "indexPath": "cosmos/main.tsx"
+  }
 }
