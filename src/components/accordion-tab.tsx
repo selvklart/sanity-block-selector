@@ -1,5 +1,5 @@
 import {useEffect, useMemo, useState} from 'react';
-import {Disclosure} from '@headlessui/react';
+import {Disclosure, Transition} from '@headlessui/react';
 import {ChevronDownIcon, ChevronUpIcon} from '@heroicons/react/24/outline';
 
 import type {Block, Group} from '../types.d';
@@ -99,14 +99,25 @@ export const AccordionTab = ({group, filter = '', onClick}: Props) => {
                             />
                         </Disclosure.Button>
                     </dt>
-                    <Disclosure.Panel
-                        as="dd"
-                        className={cn('mt-2', 'p-2', 'flex', 'flex-col', 'gap-8', 'mb-20')}
+                    <Transition
+                        className="overflow-hidden transition-all duration-300"
+                        enterFrom="transform scale-95 opacity-0 max-h-0"
+                        enterTo="transform scale-100 opacity-100 max-h-[1000px]"
+                        leaveFrom="transform scale-100 opacity-100 max-h-[1000px]"
+                        leaveTo="transform scale-95 opacity-0 max-h-0"
                     >
-                        <BlockGroup blocks={filteredBlocks?.withImage} onClick={onClick} />
-                        <BlockGroup blocks={filteredBlocks?.withDescription} onClick={onClick} />
-                        <BlockGroup blocks={filteredBlocks?.plain} onClick={onClick} />
-                    </Disclosure.Panel>
+                        <Disclosure.Panel
+                            as="dd"
+                            className={cn('mt-2', 'p-2', 'flex', 'flex-col', 'gap-8')}
+                        >
+                            <BlockGroup blocks={filteredBlocks?.withImage} onClick={onClick} />
+                            <BlockGroup
+                                blocks={filteredBlocks?.withDescription}
+                                onClick={onClick}
+                            />
+                            <BlockGroup blocks={filteredBlocks?.plain} onClick={onClick} />
+                        </Disclosure.Panel>
+                    </Transition>
                 </>
             )}
         </Disclosure>

@@ -64,3 +64,9 @@ export const BlockButton = ({block: {title, description, imageURL}, onClick}: Pr
         </button>
     );
 };
+
+/* className="overflow-hidden transition-all duration-300"
+enterFrom="transform scale-95 opacity-0 max-h-0"
+enterTo="transform scale-100 opacity-100 max-h-[1000px]"
+leaveFrom="transform scale-100 opacity-100 max-h-[1000px]"
+leaveTo="transform scale-95 opacity-0 max-h-0" */

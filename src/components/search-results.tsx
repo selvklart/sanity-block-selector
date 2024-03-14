@@ -1,4 +1,5 @@
 import {useMemo} from 'react';
+import {AnimatePresence, motion} from 'framer-motion';
 
 import type {Block, Group} from '../types.d';
 import {cn, levenshteinDistance} from '../utils';
@@ -28,20 +29,33 @@ export const SearchResults = ({groups, filter, onClick}: Props) => {
         [groups, filter],
     );
 
-    if (filter === '') {
-        return null;
-    }
-
-    if (results.length === 0) {
-        return <div className={cn('px-4', 'py-8', 'text-sm', 'text-gray-500')}>No results</div>;
-    }
-
     return (
-        <div className={cn('grid', 'grid-cols-2', 'py-8', 'gap-4')}>
-            {results.map((block) => (
-                <BlockButton key={block.title} block={block} onClick={onClick} />
-            ))}
-        </div>
+        <AnimatePresence mode="wait">
+            {filter === '' && null}
+            {filter !== '' && results.length === 0 && (
+                <motion.div
+                    key="no-results"
+                    className={cn('inline-block', 'px-4', 'py-8', 'text-sm', 'text-gray-500')}
+                    initial={{scale: 0, opacity: 0}}
+                    animate={{scale: 1, opacity: 1}}
+                    exit={{scale: 0, opacity: 0}}
+                >
+                    No results
+                </motion.div>
+            )}
+            {filter !== '' && results.length > 0 && (
+                <motion.div
+                    className={cn('grid', 'grid-cols-2', 'py-8', 'gap-4')}
+                    initial={{scale: 0, opacity: 0}}
+                    animate={{scale: 1, opacity: 1}}
+                    exit={{scale: 0, opacity: 0}}
+                >
+                    {results.map((block) => (
+                        <BlockButton key={block.title} block={block} onClick={onClick} />
+                    ))}
+                </motion.div>
+            )}
+        </AnimatePresence>
     );
 };
 
