@@ -2,7 +2,11 @@
 export default {
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './cosmos/**/*.{js,ts,jsx,tsx}'],
     theme: {
-        extend: {},
+        extend: {
+            blur: {
+                xs: '2px',
+            },
+        },
     },
     plugins: [require('@tailwindcss/forms')],
 };

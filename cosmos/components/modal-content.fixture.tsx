@@ -1,8 +1,12 @@
 import {ModalContent} from '../../src';
+import type {Group} from '../../src/types.d';
 import {mockGroups} from '../mock';
 
-const ModalContentFixture = () => {
-    return <ModalContent groups={mockGroups} />;
+const ModalContentFixture = (groups: Group[], filter: string) => {
+    return <ModalContent groups={groups} filter={filter} />;
 };
 
-export default ModalContentFixture();
+export default {
+    normal: ModalContentFixture(mockGroups, ''),
+    filtered: ModalContentFixture(mockGroups, 'featured'),
+};

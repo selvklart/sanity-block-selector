@@ -7,14 +7,15 @@ import {Search} from './search';
 
 interface Props {
     groups: Group[];
+    filter: string;
 }
 
-export const ModalContent = ({groups}: Props) => {
-    const [value, setValue] = useState('');
+export const ModalContent = ({groups, filter = ''}: Props) => {
+    const [value, setValue] = useState(filter);
     return (
         <>
             <Search value={value} onChange={setValue} />
-            <Accordion groups={groups} />
+            <Accordion groups={groups} filter={filter} />
         </>
     );
 };

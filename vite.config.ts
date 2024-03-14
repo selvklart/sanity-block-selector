@@ -4,4 +4,5 @@ import {defineConfig} from 'vite';
 export default defineConfig({
     root: 'cosmos',
     plugins: [react()],
+    assetsInclude: ['**/static/**'],
 });

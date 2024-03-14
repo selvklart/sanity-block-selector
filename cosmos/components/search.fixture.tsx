@@ -11,4 +11,7 @@ const SearchFixture = ({value, onChange}: Props) => {
     return <Search value={value} onChange={onChange} />;
 };
 
-export default SearchFixture({value: '', onChange: () => {}});
+export default {
+    empty: SearchFixture({value: '', onChange: () => {}}),
+    filled: SearchFixture({value: 'featured', onChange: () => {}}),
+};

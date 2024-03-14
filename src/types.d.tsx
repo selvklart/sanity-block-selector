@@ -1,8 +1,11 @@
 export type Group = {
     title: string;
-    blocks: {
-        title: string;
-        description?: string;
-        imageURL?: string;
-    }[];
+    blocks: Block[];
+    defaultOpen?: boolean;
+};
+
+export type Block = {
+    title: string;
+    description?: string;
+    imageURL?: URL;
 };

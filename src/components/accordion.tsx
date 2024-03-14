@@ -5,13 +5,14 @@ import {AccordionTab} from './accordion-tab';
 
 interface Props {
     groups: Group[];
+    filter: string;
 }
 
-export const Accordion = ({groups}: Props) => {
+export const Accordion = ({groups, filter = ''}: Props) => {
     return (
         <dl className={cn('mt-10', 'space-y-6', 'divide-y', 'divide-gray-900/10')}>
             {groups.map((group) => (
-                <AccordionTab key={group.title} group={group} onClick={() => {}} />
+                <AccordionTab key={group.title} group={group} filter={filter} onClick={() => {}} />
             ))}
         </dl>
     );
