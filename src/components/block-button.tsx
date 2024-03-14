@@ -28,12 +28,11 @@ export const BlockButton = ({block: {title, description, imageURL}, onClick}: Pr
                 'relative',
                 'flex',
                 'flex-col',
+                'justify-center',
                 'gap-1',
                 'rounded',
-                'bg-stone-50/30',
                 'p-8',
-                'shadow-sm',
-                'hover:bg-stone-100/70',
+                'hover:bg-stone-50',
             )}
             onClick={onClick}
         >

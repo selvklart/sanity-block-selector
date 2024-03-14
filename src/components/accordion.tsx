@@ -10,7 +10,7 @@ interface Props {
 
 export const Accordion = ({groups, filter = ''}: Props) => {
     return (
-        <dl className={cn('mt-10', 'space-y-6', 'divide-y', 'divide-gray-900/10')}>
+        <dl className={cn('mt-8', 'space-y-3')}>
             {groups.map((group) => (
                 <AccordionTab key={group.title} group={group} filter={filter} onClick={() => {}} />
             ))}

@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import {Disclosure} from '@headlessui/react';
 import {ChevronDownIcon, ChevronUpIcon} from '@heroicons/react/24/outline';
 
@@ -54,8 +54,21 @@ export const AccordionTab = ({group, filter = '', onClick}: Props) => {
         });
     }, [filter, groupedBlocks]);
 
+    const blockCount = useMemo(() => {
+        return (
+            (filteredBlocks?.withImage.length || 0) +
+            (filteredBlocks?.withDescription.length || 0) +
+            (filteredBlocks?.plain.length || 0)
+        );
+    }, [filteredBlocks]);
+
     return (
-        <Disclosure as="div" key={title} className={cn('pt-6')} defaultOpen={defaultOpen}>
+        <Disclosure
+            as="div"
+            key={title}
+            className={cn('ring-1', 'ring-outset', 'ring-gray-300', 'rounded-lg')}
+            defaultOpen={defaultOpen}
+        >
             {({open}) => (
                 <>
                     <dt>
@@ -67,42 +80,81 @@ export const AccordionTab = ({group, filter = '', onClick}: Props) => {
                                 'justify-between',
                                 'text-left',
                                 'text-gray-900',
+                                'hover:enabled:bg-stone-50',
+                                'p-4',
+                                'rounded-lg',
+                                'disabled:opacity-50',
+                                'disabled:cursor-not-allowed',
+                                'disabled:bg-stone-50/80',
                             )}
+                            disabled={blockCount === 0}
                         >
-                            <span className={cn('text-base', 'font-semibold', 'leading-7')}>
-                                {title}
-                            </span>
+                            <div className={cn('flex', 'items-center', 'gap-4')}>
+                                <span className={cn('text-base', 'font-semibold', 'leading-7')}>
+                                    {title}
+                                </span>
+                                <span
+                                    className={cn(
+                                        'ml-auto',
+                                        'w-8',
+                                        'min-w-max',
+                                        'whitespace-nowrap',
+                                        'rounded-full',
+                                        'px-2.5',
+                                        'py-0.5',
+                                        'text-center',
+                                        'text-xs',
+                                        'font-medium',
+                                        'leading-5',
+                                        'ring-1',
+                                        'ring-inset',
+                                        'ring-gray-900',
+                                    )}
+                                    aria-hidden="true"
+                                >
+                                    {blockCount}
+                                </span>
+                            </div>
+
                             <span className={cn('ml-6', 'flex', 'h-7', 'items-center')}>
                                 {open ? (
-                                    <ChevronUpIcon className={cn('size-6')} aria-hidden="true" />
+                                    <ChevronUpIcon className={cn('size-5')} aria-hidden="true" />
                                 ) : (
-                                    <ChevronDownIcon className={cn('size-6')} aria-hidden="true" />
+                                    <ChevronDownIcon className={cn('size-5')} aria-hidden="true" />
                                 )}
                             </span>
                         </Disclosure.Button>
                     </dt>
-                    <Disclosure.Panel as="dd" className={cn('mt-2', 'flex', 'flex-col', 'gap-8')}>
-                        <div className={cn('grid', 'grid-cols-2', 'gap-4')}>
-                            {filteredBlocks?.withImage.map((block) => (
-                                <BlockButton key={block.title} block={block} onClick={onClick} />
-                            ))}
-                        </div>
-
-                        <div className={cn('grid', 'grid-cols-2', 'gap-4')}>
-                            {filteredBlocks?.withDescription.map((block) => (
-                                <BlockButton key={block.title} block={block} onClick={onClick} />
-                            ))}
-                        </div>
-
-                        <div className={cn('grid', 'grid-cols-2', 'gap-4')}>
-                            {filteredBlocks?.plain.map((block) => (
-                                <BlockButton key={block.title} block={block} onClick={onClick} />
-                            ))}
-                        </div>
+                    <Disclosure.Panel
+                        as="dd"
+                        className={cn('mt-2', 'p-2', 'flex', 'flex-col', 'gap-8', 'mb-20')}
+                    >
+                        <BlockGroup blocks={filteredBlocks?.withImage} onClick={onClick} />
+                        <BlockGroup blocks={filteredBlocks?.withDescription} onClick={onClick} />
+                        <BlockGroup blocks={filteredBlocks?.plain} onClick={onClick} />
                     </Disclosure.Panel>
                 </>
             )}
         </Disclosure>
+    );
+};
+
+interface BlockGroupProps {
+    blocks?: Block[];
+    onClick: () => void;
+}
+
+const BlockGroup = ({blocks, onClick}: BlockGroupProps) => {
+    if (!blocks || blocks.length === 0) {
+        return null;
+    }
+
+    return (
+        <div className={cn('grid', 'grid-cols-2', 'gap-4')}>
+            {blocks.map((block) => (
+                <BlockButton key={block.title} block={block} onClick={onClick} />
+            ))}
+        </div>
     );
 };
 

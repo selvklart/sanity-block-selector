@@ -4,6 +4,7 @@ import type {Group} from '../types.d';
 
 import {Accordion} from './accordion';
 import {Search} from './search';
+import {SearchResults} from './search-results';
 
 interface Props {
     groups: Group[];
@@ -15,7 +16,8 @@ export const ModalContent = ({groups, filter = ''}: Props) => {
     return (
         <>
             <Search value={value} onChange={setValue} />
-            <Accordion groups={groups} filter={filter} />
+            <SearchResults groups={groups} filter={value} onClick={() => {}} />
+            <Accordion groups={groups} filter={value} />
         </>
     );
 };
