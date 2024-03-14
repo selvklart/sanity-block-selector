@@ -45,8 +45,8 @@ export const Search = ({value, onChange}: Props) => {
                     'focus:ring-2',
                     'focus:ring-inset',
                     'focus:ring-indigo-600',
-                    'sm:text-sm',
-                    'sm:leading-6',
+                    'text-sm',
+                    'leading-6',
                 )}
                 placeholder="Search blocks..."
                 value={value}

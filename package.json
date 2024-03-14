@@ -10,6 +10,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
+    "@sanity/ui": "^2.0.10",
     "@vitejs/plugin-react": "4.2.1",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.13",

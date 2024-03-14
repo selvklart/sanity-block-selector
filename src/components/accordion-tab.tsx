@@ -83,7 +83,8 @@ export const AccordionTab = ({group, filter = '', onClick}: Props) => {
                                 'text-left',
                                 'text-gray-900',
                                 'hover:enabled:bg-stone-50',
-                                'p-4',
+                                'px-4',
+                                'py-2',
                                 'rounded-r-lg',
                                 'disabled:opacity-30',
                                 'disabled:cursor-not-allowed',
@@ -168,7 +169,8 @@ const DisclosureButton = ({
                         'leading-5',
                         'ring-1',
                         'ring-inset',
-                        'ring-gray-900',
+                        'ring-gray-400',
+                        'text-gray-400',
                     )}
                     aria-hidden="true"
                 >
