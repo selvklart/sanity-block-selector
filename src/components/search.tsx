@@ -35,7 +35,7 @@ export const Search = ({value, onChange}: Props) => {
                     'w-full',
                     'rounded-md',
                     'border-0',
-                    'py-1.5',
+                    'py-2.5',
                     'pl-10',
                     'text-gray-900',
                     'ring-1',

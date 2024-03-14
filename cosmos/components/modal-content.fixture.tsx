@@ -9,4 +9,5 @@ const ModalContentFixture = (groups: Group[], filter: string) => {
 export default {
     normal: ModalContentFixture(mockGroups, ''),
     filtered: ModalContentFixture(mockGroups, 'feature'),
+    'no results': ModalContentFixture(mockGroups, 'empty'),
 };

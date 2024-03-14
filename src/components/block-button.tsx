@@ -51,43 +51,8 @@ export const BlockButton = ({block: {title, description, imageURL}, onClick}: Pr
                     <img
                         src={imageURL?.href}
                         alt={title}
-                        className={cn('object-cover', 'object-center', 'group-hover:blur-xs')}
+                        className={cn('object-cover', 'object-center')}
                     />
-                    <div
-                        className={cn(
-                            'w-full',
-                            'h-full',
-                            'flex',
-                            'items-center',
-                            'justify-center',
-                            'p-4',
-                            'opacity-0',
-                            'group-hover:opacity-100',
-                            'absolute',
-                            'z-10',
-                            'top-0',
-                        )}
-                        aria-hidden="true"
-                    >
-                        <div
-                            className={cn(
-                                'rounded-md',
-                                'bg-white',
-                                'px-3.5',
-                                'py-2.5',
-                                'text-sm',
-                                'font-semibold',
-                                'text-gray-900',
-                                'shadow-sm',
-                                'ring-1',
-                                'ring-inset',
-                                'ring-gray-300',
-                                'hover:bg-gray-50',
-                            )}
-                        >
-                            Select
-                        </div>
-                    </div>
                 </div>
             )}
             <h3 className={cn('text-base', 'font-medium', 'text-gray-900', 'text-left')}>

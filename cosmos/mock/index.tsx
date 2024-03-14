@@ -1,44 +1,5 @@
 import type {Group} from '../../src/types.d';
 
-/* import accordion from './static/accordion.png';
-import articleList from './static/article-list.png';
-import articleListFromFeed from './static/article-list-from-feed.png';
-import articleSelection from './static/article-selection.png';
-import contactPersonList from './static/contact-person-list.png';
-import contactPersonSelection from './static/contact-person-selection.png';
-import dealerList from './static/dealer-list.png';
-import dealerMap from './static/dealer-map.png';
-import dealerSelection from './static/dealer-selection.png';
-import documentGroupBlock from './static/document-group-block.png';
-import documentGroupList from './static/document-group-list.png';
-import documentList from './static/document-list.png';
-import doorTypeList from './static/door-type-list.png';
-import featuredContent from './static/featured-content.png';
-import featuredContentGrid from './static/featured-content-grid.png';
-import featuredLinkList from './static/featured-link-list.png';
-import featuredQuote from './static/featured-quote.png';
-import featuredQuotes from './static/featured-quotes.png';
-import guideList from './static/guide-list.png';
-import images from './static/images.png';
-import imagesWithActions from './static/images-with-actions.png';
-import inspirationalStoryList from './static/inspirational-story-list.png';
-import interactiveContent from './static/interactive-content.png';
-import interactiveContentGlassFunction from './static/interactive-content-glass-function.png';
-import interactiveContentGlassOption from './static/interactive-content-glass-option.png';
-import interactiveContentMaterial from './static/interactive-content-material.png';
-import interactiveContentMuntinBarStyle from './static/interactive-content-muntin-bar-style.png';
-import interactiveContentProfile from './static/interactive-content-profile.png';
-import productFeatureGrid from './static/product-feature-grid.png';
-import productTypeSelection from './static/product-type-selection.png';
-import searchBox from './static/search-box.png';
-import sharedContentReference from './static/shared-content-reference.png';
-import tabbedContent from './static/tabbed-content.png';
-import table from './static/table.png';
-import vacancyList from './static/vacancy-list.png';
-import windowTypeList from './static/window-type-list.png';
-import youTubeVideo from './static/you-tube-video.png';
-import youTubeVideoSelection from './static/you-tube-video-selection.png'; */
-
 export const mockGroups: Group[] = [
     {
         title: 'Content',

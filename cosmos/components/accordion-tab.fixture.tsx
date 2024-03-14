@@ -11,4 +11,5 @@ export default {
     open: AccordionTabFixture({...group, defaultOpen: true}, ''),
     closed: AccordionTabFixture(group, ''),
     filtered: AccordionTabFixture({...group, defaultOpen: true}, 'featured'),
+    empty: AccordionTabFixture({...group, blocks: []}, ''),
 };

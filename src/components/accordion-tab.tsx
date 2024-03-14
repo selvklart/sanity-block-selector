@@ -21,6 +21,7 @@ export const AccordionTab = ({group, filter = '', onClick}: Props) => {
         withDescription: Block[];
         plain: Block[];
     }>();
+
     useEffect(() => {
         const updateBlocks = async () => {
             const images = resolveImages(blocks);
@@ -40,6 +41,7 @@ export const AccordionTab = ({group, filter = '', onClick}: Props) => {
         withDescription: Block[];
         plain: Block[];
     }>();
+
     useEffect(() => {
         if (!groupedBlocks) {
             return;
@@ -66,10 +68,10 @@ export const AccordionTab = ({group, filter = '', onClick}: Props) => {
         <Disclosure
             as="div"
             key={title}
-            className={cn('ring-1', 'ring-outset', 'ring-gray-300', 'rounded-lg')}
+            className={cn('border-l', 'border-gray-300')}
             defaultOpen={defaultOpen}
         >
-            {({open}) => (
+            {({open, close}) => (
                 <>
                     <dt>
                         <Disclosure.Button
@@ -82,47 +84,19 @@ export const AccordionTab = ({group, filter = '', onClick}: Props) => {
                                 'text-gray-900',
                                 'hover:enabled:bg-stone-50',
                                 'p-4',
-                                'rounded-lg',
-                                'disabled:opacity-50',
+                                'rounded-r-lg',
+                                'disabled:opacity-30',
                                 'disabled:cursor-not-allowed',
-                                'disabled:bg-stone-50/80',
                             )}
                             disabled={blockCount === 0}
                         >
-                            <div className={cn('flex', 'items-center', 'gap-4')}>
-                                <span className={cn('text-base', 'font-semibold', 'leading-7')}>
-                                    {title}
-                                </span>
-                                <span
-                                    className={cn(
-                                        'ml-auto',
-                                        'w-8',
-                                        'min-w-max',
-                                        'whitespace-nowrap',
-                                        'rounded-full',
-                                        'px-2.5',
-                                        'py-0.5',
-                                        'text-center',
-                                        'text-xs',
-                                        'font-medium',
-                                        'leading-5',
-                                        'ring-1',
-                                        'ring-inset',
-                                        'ring-gray-900',
-                                    )}
-                                    aria-hidden="true"
-                                >
-                                    {blockCount}
-                                </span>
-                            </div>
-
-                            <span className={cn('ml-6', 'flex', 'h-7', 'items-center')}>
-                                {open ? (
-                                    <ChevronUpIcon className={cn('size-5')} aria-hidden="true" />
-                                ) : (
-                                    <ChevronDownIcon className={cn('size-5')} aria-hidden="true" />
-                                )}
-                            </span>
+                            <DisclosureButton
+                                title={title}
+                                blockCount={blockCount}
+                                filteredBlocks={filteredBlocks}
+                                open={open}
+                                close={close}
+                            />
                         </Disclosure.Button>
                     </dt>
                     <Disclosure.Panel
@@ -136,6 +110,69 @@ export const AccordionTab = ({group, filter = '', onClick}: Props) => {
                 </>
             )}
         </Disclosure>
+    );
+};
+
+interface DisclosureButtonProps {
+    title: string;
+    blockCount: number;
+    filteredBlocks?: {
+        withImage: Block[];
+        withDescription: Block[];
+        plain: Block[];
+    };
+    open: boolean;
+    close: () => void;
+}
+
+const DisclosureButton = ({
+    title,
+    blockCount,
+    filteredBlocks,
+    open,
+    close,
+}: DisclosureButtonProps) => {
+    useEffect(() => {
+        if (filteredBlocks && blockCount === 0) {
+            close();
+        }
+    }, [blockCount, filteredBlocks, close]);
+
+    return (
+        <>
+            <div className={cn('flex', 'items-center', 'gap-4')}>
+                <span className={cn('text-base', 'font-semibold', 'leading-7')}>{title}</span>
+                <span
+                    className={cn(
+                        'ml-auto',
+                        'w-8',
+                        'min-w-max',
+                        'whitespace-nowrap',
+                        'rounded-full',
+                        'px-2.5',
+                        'py-0.5',
+                        'text-center',
+                        'text-xs',
+                        'font-medium',
+                        'leading-5',
+                        'ring-1',
+                        'ring-inset',
+                        'ring-gray-900',
+                    )}
+                    aria-hidden="true"
+                >
+                    {blockCount}
+                </span>
+            </div>
+
+            <span className={cn('ml-6', 'flex', 'h-7', 'items-center')}>
+                {open ? (
+                    <ChevronUpIcon className={cn('size-5')} aria-hidden="true" />
+                ) : (
+                    <ChevronDownIcon className={cn('size-5')} aria-hidden="true" />
+                )}
+            </span>
+        </>
     );
 };
 
