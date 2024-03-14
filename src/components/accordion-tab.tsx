@@ -2,7 +2,7 @@ import {useEffect, useMemo, useState} from 'react';
 import {Disclosure, Transition} from '@headlessui/react';
 import {ChevronDownIcon, ChevronUpIcon} from '@heroicons/react/24/outline';
 
-import type {Block, Group} from '../types.d';
+import type {Block, Group, OnBlockSelectFn} from '../types.d';
 import {cn} from '../utils';
 
 import {BlockButton} from './block-button';
@@ -10,10 +10,10 @@ import {BlockButton} from './block-button';
 interface Props {
     group: Group;
     filter: string;
-    onClick: () => void;
+    onSelectBlock: OnBlockSelectFn;
 }
 
-export const AccordionTab = ({group, filter = '', onClick}: Props) => {
+export const AccordionTab = ({group, filter = '', onSelectBlock}: Props) => {
     const {title, blocks, defaultOpen} = group;
 
     const [groupedBlocks, setGroupedBlocks] = useState<{
@@ -111,12 +111,18 @@ export const AccordionTab = ({group, filter = '', onClick}: Props) => {
                             as="dd"
                             className={cn('mt-2', 'p-2', 'flex', 'flex-col', 'gap-8')}
                         >
-                            <BlockGroup blocks={filteredBlocks?.withImage} onClick={onClick} />
+                            <BlockGroup
+                                blocks={filteredBlocks?.withImage}
+                                onSelectBlock={onSelectBlock}
+                            />
                             <BlockGroup
                                 blocks={filteredBlocks?.withDescription}
-                                onClick={onClick}
+                                onSelectBlock={onSelectBlock}
                             />
-                            <BlockGroup blocks={filteredBlocks?.plain} onClick={onClick} />
+                            <BlockGroup
+                                blocks={filteredBlocks?.plain}
+                                onSelectBlock={onSelectBlock}
+                            />
                         </Disclosure.Panel>
                     </Transition>
                 </>
@@ -191,10 +197,10 @@ const DisclosureButton = ({
 
 interface BlockGroupProps {
     blocks?: Block[];
-    onClick: () => void;
+    onSelectBlock: OnBlockSelectFn;
 }
 
-const BlockGroup = ({blocks, onClick}: BlockGroupProps) => {
+const BlockGroup = ({blocks, onSelectBlock}: BlockGroupProps) => {
     if (!blocks || blocks.length === 0) {
         return null;
     }
@@ -202,7 +208,7 @@ const BlockGroup = ({blocks, onClick}: BlockGroupProps) => {
     return (
         <div className={cn('grid', 'grid-cols-2', 'gap-4')}>
             {blocks.map((block) => (
-                <BlockButton key={block.title} block={block} onClick={onClick} />
+                <BlockButton key={block.title} block={block} onSelectBlock={onSelectBlock} />
             ))}
         </div>
     );

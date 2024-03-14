@@ -1,6 +1,9 @@
 import type {ClassValue} from 'clsx';
 import clsx from 'clsx';
+import type {SchemaTypeDefinition} from 'sanity';
 import {twMerge} from 'tailwind-merge';
+
+import type {Block, Group, Options} from './types.d';
 
 export const cn = (...inputs: ClassValue[]) => {
     return twMerge(clsx(inputs));
@@ -44,4 +47,65 @@ export const levenshteinDistance = (a: string, b: string) => {
     }
 
     return distanceMatrix[b.length][a.length];
+};
+
+export const schemaAndOptionsToGroups = (
+    schemaDefinitions: SchemaTypeDefinition[],
+    options: Options,
+): Group[] => {
+    const {blockPreviews, excludedBlocks, showOther} = options;
+    let blockCount = 0;
+    const groups = blockPreviews.map<Group>((optionGroup) => {
+        const groupBlocks = schemaAndOptionsGroupToBlocks(schemaDefinitions, optionGroup);
+        blockCount += groupBlocks.length;
+        return {
+            title: optionGroup.title,
+            blocks: groupBlocks,
+        };
+    });
+
+    if (blockCount < schemaDefinitions.length - excludedBlocks.length && showOther) {
+        groups.push({
+            title: 'Other',
+            blocks: schemaDefinitions
+                .filter(
+                    (block) =>
+                        !blockPreviews.some((group) =>
+                            Object.keys(group.blocks).includes(block.name),
+                        ),
+                )
+                .map((block): Block => {
+                    return {
+                        _key: block.name,
+                        name: block.name,
+                        title: block.title ?? '',
+                    };
+                }),
+        });
+    }
+    return groups;
+};
+
+const schemaAndOptionsGroupToBlocks = (
+    schemaDefinitions: SchemaTypeDefinition[],
+    group: Options['blockPreviews'][number],
+): Block[] => {
+    // Find schema definitions that are relevant for this group
+    const definitions = schemaDefinitions.filter((definition) =>
+        Object.keys(group.blocks).includes(definition.name),
+    );
+
+    // Map the definitions to blocks
+    const groupBlocks = definitions.map((definition) => {
+        const definitionOption = group.blocks[definition.name];
+        return {
+            _key: definition.name,
+            name: definition.name,
+            title: definition.title ?? '',
+            description: definitionOption?.description,
+            imageURL: definitionOption?.imageURL ? new URL(definitionOption.imageURL) : undefined,
+        };
+    });
+
+    return groupBlocks;
 };

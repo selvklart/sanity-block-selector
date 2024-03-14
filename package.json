@@ -18,7 +18,9 @@
     "react-cosmos": "^6.1.1",
     "react-cosmos-plugin-vite": "^6.1.1",
     "react-dom": "18.2.0",
+    "sanity": "^3.33.0",
     "tailwind-merge": "^2.2.1",
+    "uuid": "^9.0.1",
     "vite": "5.1.4"
   },
   "peerDependencies": {

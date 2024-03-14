@@ -5,49 +5,69 @@ export const mockGroups: Group[] = [
         title: 'Content',
         blocks: [
             {
+                _key: 'accordion',
+                name: 'accordion',
                 title: 'Accordion',
                 description: 'A list of expandable items',
                 imageURL: new URL('./static/accordion.png', import.meta.url),
             },
             {
+                _key: 'featured content',
+                name: 'featured content',
                 title: 'Featured Content',
                 description: 'A list of featured content',
                 imageURL: new URL('./static/article-list.png', import.meta.url),
             },
             {
+                _key: 'featured content grid',
+                name: 'featured content grid',
                 title: 'Featured Content Grid',
                 description: 'A grid of featured content',
                 imageURL: new URL('./static/article-list-from-feed.png', import.meta.url),
             },
             {
+                _key: 'featured link list',
+                name: 'featured link list',
                 title: 'Featured Link List',
                 description: 'A list of featured links',
                 imageURL: new URL('./static/article-selection.png', import.meta.url),
             },
             {
+                _key: 'featured quote',
+                name: 'featured quote',
                 title: 'Featured Quote',
                 description: 'A featured quote',
                 imageURL: new URL('./static/contact-person-list.png', import.meta.url),
             },
             {
+                _key: 'featured quotes',
+                name: 'featured quotes',
                 title: 'Featured Quotes',
                 description: 'A list of featured quotes',
                 imageURL: new URL('./static/contact-person-selection.png', import.meta.url),
             },
             {
+                _key: 'shared content reference',
+                name: 'shared content reference',
                 title: 'Shared Content Reference',
                 description: 'A list of shared content references',
                 imageURL: new URL('./static/dealer-list.png', import.meta.url),
             },
             {
+                _key: 'search box',
+                name: 'search box',
                 title: 'Search Box',
                 imageURL: new URL('./static/dealer-map.png', import.meta.url),
             },
             {
+                _key: 'tabbed content',
+                name: 'tabbed content',
                 title: 'Tabbed Content',
                 imageURL: new URL('./static/dealer-selection.png', import.meta.url),
             },
             {
+                _key: 'table',
+                name: 'table',
                 title: 'Table',
                 imageURL: new URL('./static/document-group-block.png', import.meta.url),
             },
@@ -57,21 +77,29 @@ export const mockGroups: Group[] = [
         title: 'Media',
         blocks: [
             {
+                _key: 'images',
+                name: 'images',
                 title: 'Images',
                 description: 'A list of images',
                 imageURL: new URL('./static/document-group-list.png', import.meta.url),
             },
             {
+                _key: 'images with actions',
+                name: 'images with actions',
                 title: 'Images With Actions',
                 description: 'A list of images with actions',
                 imageURL: new URL('./static/document-list.png', import.meta.url),
             },
             {
+                _key: 'you-tube video',
+                name: 'you-tube video',
                 title: 'YouTube Video',
                 description: 'A YouTube video',
                 imageURL: new URL('./static/door-type-list.png', import.meta.url),
             },
             {
+                _key: 'you-tube video selection',
+                name: 'you-tube video selection',
                 title: 'YouTube Video Selection',
                 description: 'A list of YouTube videos with a selection',
                 imageURL: new URL('./static/featured-content.png', import.meta.url),
@@ -82,26 +110,36 @@ export const mockGroups: Group[] = [
         title: 'Articles',
         blocks: [
             {
+                _key: 'article list',
+                name: 'article list',
                 title: 'Article List',
                 description: 'A list of articles',
                 imageURL: new URL('./static/featured-content-grid.png', import.meta.url),
             },
             {
+                _key: 'article list from feed',
+                name: 'article list from feed',
                 title: 'Article List From Feed',
                 description: 'A list of articles from a feed',
                 imageURL: new URL('./static/featured-link-list.png', import.meta.url),
             },
             {
+                _key: 'article selection',
+                name: 'article selection',
                 title: 'Article Selection',
                 description: 'A list of articles with a selection',
                 imageURL: new URL('./static/featured-quote.png', import.meta.url),
             },
             {
+                _key: 'guide list',
+                name: 'guide list',
                 title: 'Guide List',
                 description: 'A list of guides',
                 imageURL: new URL('./static/featured-quotes.png', import.meta.url),
             },
             {
+                _key: 'inspirational story list',
+                name: 'inspirational story list',
                 title: 'Inspirational Story List',
                 description: 'A list of inspirational stories',
                 imageURL: new URL('./static/guide-list.png', import.meta.url),
@@ -112,26 +150,36 @@ export const mockGroups: Group[] = [
         title: 'Products',
         blocks: [
             {
+                _key: 'door type list',
+                name: 'door type list',
                 title: 'Door Type List',
                 description: 'A list of door types',
                 imageURL: new URL('./static/images.png', import.meta.url),
             },
             {
+                _key: 'window type list',
+                name: 'window type list',
                 title: 'Window Type List',
                 description: 'A list of window types',
                 imageURL: new URL('./static/images-with-actions.png', import.meta.url),
             },
             {
+                _key: 'product type selection',
+                name: 'product type selection',
                 title: 'Product Type Selection',
                 description: 'A list of product types with a selection',
                 imageURL: new URL('./static/inspirational-story-list.png', import.meta.url),
             },
             {
+                _key: 'product feature grid',
+                name: 'product feature grid',
                 title: 'Product Feature Grid',
                 description: 'A grid of product features',
                 imageURL: new URL('./static/interactive-content.png', import.meta.url),
             },
             {
+                _key: 'interactive content',
+                name: 'interactive content',
                 title: 'Interactive Content',
                 description: 'A list of interactive content',
                 imageURL: new URL(
@@ -140,16 +188,22 @@ export const mockGroups: Group[] = [
                 ),
             },
             {
+                _key: 'interactive content glass function',
+                name: 'interactive content glass function',
                 title: 'Interactive Content Glass Function',
                 description: 'A list of interactive content glass functions',
                 imageURL: new URL('./static/interactive-content-glass-option.png', import.meta.url),
             },
             {
+                _key: 'interactive content glass option',
+                name: 'interactive content glass option',
                 title: 'Interactive Content Glass Option',
                 description: 'A list of interactive content glass options',
                 imageURL: new URL('./static/interactive-content-material.png', import.meta.url),
             },
             {
+                _key: 'interactive content material',
+                name: 'interactive content material',
                 title: 'Interactive Content Material',
                 description: 'A list of interactive content materials',
                 imageURL: new URL(
@@ -158,11 +212,15 @@ export const mockGroups: Group[] = [
                 ),
             },
             {
+                _key: 'interactive content muntin bar style',
+                name: 'interactive content muntin bar style',
                 title: 'Interactive Content Muntin Bar Style',
                 description: 'A list of interactive content muntin bar styles',
                 imageURL: new URL('./static/interactive-content-profile.png', import.meta.url),
             },
             {
+                _key: 'interactive content profile',
+                name: 'interactive content profile',
                 title: 'Interactive Content Profile',
                 description: 'A list of interactive content profiles',
                 imageURL: new URL('./static/product-feature-grid.png', import.meta.url),
@@ -173,16 +231,22 @@ export const mockGroups: Group[] = [
         title: 'Documents',
         blocks: [
             {
+                _key: 'document group block',
+                name: 'document group block',
                 title: 'Document Group Block',
                 description: 'A block of document groups',
                 imageURL: new URL('./static/product-type-selection.png', import.meta.url),
             },
             {
+                _key: 'document group list',
+                name: 'document group list',
                 title: 'Document Group List',
                 description: 'A list of document groups',
                 imageURL: new URL('./static/search-box.png', import.meta.url),
             },
             {
+                _key: 'document list',
+                name: 'document list',
                 title: 'Document List',
                 description: 'A list of documents',
                 imageURL: new URL('./static/shared-content-reference.png', import.meta.url),
@@ -193,16 +257,22 @@ export const mockGroups: Group[] = [
         title: 'Dealers',
         blocks: [
             {
+                _key: 'dealer list',
+                name: 'dealer list',
                 title: 'Dealer List',
                 description: 'A list of dealers',
                 imageURL: new URL('./static/tabbed-content.png', import.meta.url),
             },
             {
+                _key: 'dealer map',
+                name: 'dealer map',
                 title: 'Dealer Map',
                 description: 'A map of dealers',
                 imageURL: new URL('./static/table.png', import.meta.url),
             },
             {
+                _key: 'dealer selection',
+                name: 'dealer selection',
                 title: 'Dealer Selection',
                 description: 'A list of dealers with a selection',
                 imageURL: new URL('./static/vacancy-list.png', import.meta.url),
@@ -213,16 +283,22 @@ export const mockGroups: Group[] = [
         title: 'People and positions',
         blocks: [
             {
+                _key: 'contact person list',
+                name: 'contact person list',
                 title: 'Contact Person List',
                 description: 'A list of contact persons',
                 imageURL: new URL('./static/window-type-list.png', import.meta.url),
             },
             {
+                _key: 'contact person selection',
+                name: 'contact person selection',
                 title: 'Contact Person Selection',
                 description: 'A list of contact persons with a selection',
                 imageURL: new URL('./static/you-tube-video.png', import.meta.url),
             },
             {
+                _key: 'vacancy list',
+                name: 'vacancy list',
                 title: 'Vacancy List',
                 description: 'A list of vacancies',
                 imageURL: new URL('./static/you-tube-video-selection.png', import.meta.url),

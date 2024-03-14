@@ -3,7 +3,7 @@ import type {Group} from '../../src/types.d';
 import {mockGroups} from '../mock';
 
 const DialogContentFixture = (groups: Group[], filter: string) => {
-    return <DialogContent groups={groups} filter={filter} />;
+    return <DialogContent groups={groups} filter={filter} onSelectBlock={() => {}} />;
 };
 
 export default {
