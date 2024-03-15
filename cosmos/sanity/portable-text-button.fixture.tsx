@@ -9,4 +9,4 @@ const PortableTextButtonFixture = () => {
     return <PortableTextButton groups={groups} open={open} setOpen={setOpen} />;
 };
 
-export default PortableTextButtonFixture;
+export default PortableTextButtonFixture();
