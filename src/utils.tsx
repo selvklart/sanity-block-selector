@@ -66,7 +66,7 @@ export const schemaAndOptionsToGroups = (
 
     if (blockCount < schemaDefinitions.length - (excludedBlocks?.length ?? 0) && showOther) {
         groups.push({
-            title: 'Other',
+            title: options.text?.other ?? 'Other',
             blocks: schemaDefinitions
                 .filter(
                     (block) =>

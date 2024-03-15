@@ -1,6 +1,6 @@
 {
   "name": "@selvklart/sanity-block-selector",
-  "version": "0.0.11",
+  "version": "1.0.1",
   "type": "module",
   "source": "src/index.tsx",
   "main": "dist/main.js",
