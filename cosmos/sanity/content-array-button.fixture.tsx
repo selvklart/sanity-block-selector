@@ -9,4 +9,4 @@ const ContentArrayButtonFixture = () => {
     return <ContentArrayButton groups={groups} open={open} setOpen={setOpen} />;
 };
 
-export default ContentArrayButtonFixture();
+export default ContentArrayButtonFixture;
