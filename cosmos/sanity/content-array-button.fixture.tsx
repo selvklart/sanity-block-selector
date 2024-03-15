@@ -3,7 +3,7 @@ import type {Group} from '../../src/types.d';
 import {mockGroups} from '../mock';
 
 const ContentArrayButtonFixture = (groups: Group[]) => {
-    return <ContentArrayButton groups={groups} onSelectBlock={() => {}} />;
+    return <ContentArrayButton groups={groups} />;
 };
 
 export default ContentArrayButtonFixture(mockGroups);

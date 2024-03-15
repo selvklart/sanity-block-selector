@@ -28,6 +28,7 @@ export type Options = {
 };
 
 export type TextOptions = {
+    addItem?: string;
     dialogTitle?: string;
     searchPlaceholder?: string;
 };

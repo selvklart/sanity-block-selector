@@ -103,7 +103,9 @@ const schemaAndOptionsGroupToBlocks = (
             name: definition.name,
             title: definition.title ?? '',
             description: definitionOption?.description,
-            imageURL: definitionOption?.imageURL ? new URL(definitionOption.imageURL) : undefined,
+            imageURL: definitionOption?.imageURL
+                ? new URL(definitionOption.imageURL, window.location.origin)
+                : undefined,
         };
     });
 

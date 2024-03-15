@@ -1,12 +1,14 @@
 import {useCallback, useEffect, useId, useState} from 'react';
 import {createPortal} from 'react-dom';
-import {PatchEvent, type PortableTextInputProps, type SchemaTypeDefinition, set} from 'sanity';
+import {type PortableTextInputProps, type SchemaTypeDefinition, set} from 'sanity';
 import {v4 as uuid} from 'uuid';
 
 import {BlockSelectorContextProvider} from '../components/provider';
 import {PortableTextButton} from '../sanity/portable-text-button';
 import type {Block, Options} from '../types.d';
 import {schemaAndOptionsToGroups} from '../utils';
+
+import '../index.css';
 
 export const WithPortableTextBlockSelector = (options: Options) =>
     function RichPortableText(props: PortableTextInputProps) {
@@ -51,7 +53,7 @@ const Render = (props: PortableTextInputProps & {options: Options}) => {
                     _type: block.name,
                 });
             }
-            props.onChange(PatchEvent.from(set(newPortableText)));
+            props.onChange(set(newPortableText));
             setOpen(false);
         },
         [props, focusedBlock],
