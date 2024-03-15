@@ -9,7 +9,7 @@
   "scripts": {
     "start": "cosmos",
     "export": "cosmos-export",
-    "build": "parcel build",
+    "build": "parcel build --no-cache",
     "prepublishOnly": "bun run build"
   },
   "files": [
