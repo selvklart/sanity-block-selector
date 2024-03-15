@@ -31,6 +31,7 @@ export type TextOptions = {
     addItem?: string;
     dialogTitle?: string;
     searchPlaceholder?: string;
+    other?: string;
 };
 
 export type OnBlockSelectFn = (block: Block) => void;
