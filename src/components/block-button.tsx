@@ -35,7 +35,7 @@ export const BlockButton = ({block}: Props) => {
                 'gap-1',
                 'rounded',
                 'p-8',
-                'hover:bg-stone-50',
+                'hover:enabled:bg-stone-300/10',
             )}
             onClick={() => onSelectBlock(block)}
         >
@@ -47,7 +47,7 @@ export const BlockButton = ({block}: Props) => {
                         'aspect-w-4',
                         'overflow-hidden',
                         'rounded-lg',
-                        'bg-stone-200',
+                        'bg-stone-300/20',
                         'relative',
                     )}
                 >
@@ -58,11 +58,9 @@ export const BlockButton = ({block}: Props) => {
                     />
                 </div>
             )}
-            <h3 className={cn('text-base', 'font-medium', 'text-gray-900', 'text-left')}>
-                {title}
-            </h3>
+            <h3 className={cn('text-base', 'font-medium', 'text-card-fg', 'text-left')}>{title}</h3>
             {description && (
-                <p className={cn('text-sm', 'text-gray-500', 'text-left')}>{description}</p>
+                <p className={cn('text-sm', 'text-card-muted-fg', 'text-left')}>{description}</p>
             )}
         </button>
     );

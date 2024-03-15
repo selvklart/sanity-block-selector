@@ -67,7 +67,7 @@ export const AccordionTab = ({group, filter = ''}: Props) => {
         <Disclosure
             as="div"
             key={title}
-            className={cn('border-l', 'border-gray-300')}
+            className={cn('border-l', 'border-card-border')}
             defaultOpen={defaultOpen}
         >
             {({open, close}) => (
@@ -80,8 +80,8 @@ export const AccordionTab = ({group, filter = ''}: Props) => {
                                 'items-start',
                                 'justify-between',
                                 'text-left',
-                                'text-gray-900',
-                                'hover:enabled:bg-stone-50',
+                                'text-card-fg',
+                                'hover:enabled:bg-stone-300/10',
                                 'px-4',
                                 'py-2',
                                 'rounded-r-lg',

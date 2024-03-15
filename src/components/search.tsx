@@ -40,16 +40,17 @@ export const Search = ({value, onChange}: Props) => {
                     '!border-0',
                     '!py-2.5',
                     '!pl-10',
-                    '!text-gray-900',
+                    '!color-inherit',
                     '!ring-1',
                     '!ring-inset',
-                    '!ring-gray-300',
+                    '!ring-card-border',
                     '!placeholder:text-gray-400',
                     '!focus:ring-2',
                     '!focus:ring-inset',
                     '!focus:ring-indigo-600',
                     '!text-sm',
                     '!leading-6',
+                    '!bg-inherit',
                 )}
                 placeholder={textOptions?.searchPlaceholder ?? 'Search blocks...'}
                 value={value}
