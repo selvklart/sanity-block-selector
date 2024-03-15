@@ -3,7 +3,13 @@
 ![NPM Version](https://img.shields.io/npm/v/%40selvklart%2Fsanity-block-selector?link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40selvklart%2Fsanity-block-selector)
 
 
-## Description:
+## In action
+
+![base image](./static/base.png)
+![search image](./static/search.png)
+
+
+## Description
 
 Provides components for overriding the default Sanity block selector.
 Comes with two options to do this:
@@ -11,7 +17,7 @@ Comes with two options to do this:
 `WithPortableTextBlockSelector` - for the "..." buttons inside portable text editors
 
 
-## Use:
+## Use
 
 The components should be used as custom input components for the fields you want to have this block selector.
 
@@ -59,7 +65,7 @@ With the `text` field, you can override all of the hardcoded text values in the 
 ```
 
 
-## Scripts and getting this thing running:
+## Scripts and getting this thing running
 
 To install dependencies:
 
