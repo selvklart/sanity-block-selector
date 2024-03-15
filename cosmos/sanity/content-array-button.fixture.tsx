@@ -1,9 +1,12 @@
+import {useFixtureInput} from 'react-cosmos/client';
+
 import {ContentArrayButton} from '../../src/sanity/content-array-button';
-import type {Group} from '../../src/types.d';
 import {mockGroups} from '../mock';
 
-const ContentArrayButtonFixture = (groups: Group[]) => {
-    return <ContentArrayButton groups={groups} />;
+const ContentArrayButtonFixture = () => {
+    const [groups] = useFixtureInput('groups', mockGroups);
+    const [open, setOpen] = useFixtureInput('open', false);
+    return <ContentArrayButton groups={groups} open={open} setOpen={setOpen} />;
 };
 
-export default ContentArrayButtonFixture(mockGroups);
+export default ContentArrayButtonFixture();
