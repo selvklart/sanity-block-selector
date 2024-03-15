@@ -3,7 +3,7 @@ import type {Group} from '../../src/types.d';
 import {mockGroups} from '../mock';
 
 const SearchResultsFixture = (groups: Group[], filter: string) => {
-    return <SearchResults groups={groups} filter={filter} onSelectBlock={() => {}} />;
+    return <SearchResults groups={groups} filter={filter} />;
 };
 
 export default {

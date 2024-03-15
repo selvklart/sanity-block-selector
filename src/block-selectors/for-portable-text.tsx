@@ -3,6 +3,7 @@ import {createPortal} from 'react-dom';
 import {PatchEvent, type PortableTextInputProps, type SchemaTypeDefinition, set} from 'sanity';
 import {v4 as uuid} from 'uuid';
 
+import {BlockSelectorContextProvider} from '../components/provider';
 import {PortableTextButton} from '../sanity/portable-text-button';
 import type {Block, Options} from '../types.d';
 import {schemaAndOptionsToGroups} from '../utils';
@@ -31,7 +32,7 @@ const Render = (props: PortableTextInputProps & {options: Options}) => {
 
     const schema = props.schemaType as unknown as {of: SchemaTypeDefinition[]};
     const schemaDefinitions = schema.of.filter(
-        (block) => !props.options.excludedBlocks.includes(block.name),
+        (block) => !props.options.excludedBlocks?.includes(block.name),
     );
     const [focusedBlock, setFocusedBlock] = useState<string | null>(null);
 
@@ -70,12 +71,12 @@ const Render = (props: PortableTextInputProps & {options: Options}) => {
 
     const groups = schemaAndOptionsToGroups(schemaDefinitions, props.options);
     return (
-        <PortableTextButton
-            groups={groups}
-            open={open}
-            setOpen={setOpen}
+        <BlockSelectorContextProvider
+            textOptions={props.options.text}
             onSelectBlock={onSelectBlock}
-        />
+        >
+            <PortableTextButton groups={groups} open={open} setOpen={setOpen} />
+        </BlockSelectorContextProvider>
     );
 };
 

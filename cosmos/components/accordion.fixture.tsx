@@ -3,7 +3,7 @@ import type {Group} from '../../src/types.d';
 import {mockGroups} from '../mock';
 
 const AccordionFixture = (groups: Group[], filter: string) => {
-    return <Accordion groups={groups} filter={filter} onSelectBlock={() => {}} />;
+    return <Accordion groups={groups} filter={filter} />;
 };
 
 export default {

@@ -3,7 +3,7 @@ import type {Group} from '../../src/types.d';
 import {mockGroups} from '../mock';
 
 const AccordionTabFixture = (group: Group, filter: string) => {
-    return <AccordionTab group={group} filter={filter} onSelectBlock={() => {}} />;
+    return <AccordionTab group={group} filter={filter} />;
 };
 
 const group = mockGroups[0];

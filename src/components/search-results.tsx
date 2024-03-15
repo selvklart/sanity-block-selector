@@ -1,7 +1,7 @@
 import {useMemo} from 'react';
 import {AnimatePresence, motion} from 'framer-motion';
 
-import type {Block, Group, OnBlockSelectFn} from '../types.d';
+import type {Block, Group} from '../types.d';
 import {cn, levenshteinDistance} from '../utils';
 
 import {BlockButton} from './block-button';
@@ -9,10 +9,9 @@ import {BlockButton} from './block-button';
 interface Props {
     groups: Group[];
     filter: string;
-    onSelectBlock: OnBlockSelectFn;
 }
 
-export const SearchResults = ({groups, filter, onSelectBlock}: Props) => {
+export const SearchResults = ({groups, filter}: Props) => {
     const results = useMemo(
         () =>
             groups
@@ -51,11 +50,7 @@ export const SearchResults = ({groups, filter, onSelectBlock}: Props) => {
                     exit={{scale: 0, opacity: 0}}
                 >
                     {results.map((block) => (
-                        <BlockButton
-                            key={block.title}
-                            block={block}
-                            onSelectBlock={onSelectBlock}
-                        />
+                        <BlockButton key={block.title} block={block} />
                     ))}
                 </motion.div>
             )}

@@ -1,16 +1,18 @@
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 
-import type {Block, OnBlockSelectFn} from '../types.d';
+import type {Block} from '../types.d';
 import {cn} from '../utils';
+
+import {BlockSelectorContext} from './provider';
 
 interface Props {
     block: Block;
-    onSelectBlock: OnBlockSelectFn;
 }
 
-export const BlockButton = ({block, onSelectBlock}: Props) => {
+export const BlockButton = ({block}: Props) => {
     const {title, description, imageURL} = block;
     const [isValid, setIsValid] = useState(false);
+    const {onSelectBlock} = useContext(BlockSelectorContext);
 
     useEffect(() => {
         if (imageURL) {

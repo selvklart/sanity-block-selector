@@ -64,7 +64,7 @@ export const schemaAndOptionsToGroups = (
         };
     });
 
-    if (blockCount < schemaDefinitions.length - excludedBlocks.length && showOther) {
+    if (blockCount < schemaDefinitions.length - (excludedBlocks?.length ?? 0) && showOther) {
         groups.push({
             title: 'Other',
             blocks: schemaDefinitions
@@ -72,7 +72,7 @@ export const schemaAndOptionsToGroups = (
                     (block) =>
                         !blockPreviews.some((group) =>
                             Object.keys(group.blocks).includes(block.name),
-                        ),
+                        ) && !excludedBlocks?.includes(block.name),
                 )
                 .map((block): Block => {
                     return {

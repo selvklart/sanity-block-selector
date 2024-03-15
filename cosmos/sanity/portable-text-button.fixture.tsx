@@ -6,14 +6,7 @@ import {mockGroups} from '../mock';
 const PortableTextButtonFixture = () => {
     const [groups] = useFixtureInput('groups', mockGroups);
     const [open, setOpen] = useFixtureInput('open', false);
-    return (
-        <PortableTextButton
-            groups={groups}
-            open={open}
-            setOpen={setOpen}
-            onSelectBlock={() => {}}
-        />
-    );
+    return <PortableTextButton groups={groups} open={open} setOpen={setOpen} />;
 };
 
 export default PortableTextButtonFixture;

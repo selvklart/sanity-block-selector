@@ -3,7 +3,7 @@ import type {Block} from '../../src/types.d';
 import {mockGroups} from '../mock';
 
 const BlockButtonFixture = (block: Block) => {
-    return <BlockButton block={block} onSelectBlock={() => {}} />;
+    return <BlockButton block={block} />;
 };
 
 const block = mockGroups[0].blocks[0];

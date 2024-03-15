@@ -22,8 +22,14 @@ export type Options = {
             };
         };
     }[];
-    excludedBlocks: string[];
-    showOther: boolean;
+    excludedBlocks?: string[];
+    showOther?: boolean;
+    text?: TextOptions;
+};
+
+export type TextOptions = {
+    dialogTitle?: string;
+    searchPlaceholder?: string;
 };
 
 export type OnBlockSelectFn = (block: Block) => void;

@@ -1,7 +1,9 @@
-import type {Dispatch, SetStateAction} from 'react';
+import {type Dispatch, type SetStateAction, useContext} from 'react';
 import {MagnifyingGlassIcon} from '@heroicons/react/20/solid';
 
 import {cn} from '../utils';
+
+import {BlockSelectorContext} from './provider';
 
 interface Props {
     value: string;
@@ -9,6 +11,7 @@ interface Props {
 }
 
 export const Search = ({value, onChange}: Props) => {
+    const {textOptions} = useContext(BlockSelectorContext);
     return (
         <div className={cn('relative', 'mt-2', 'rounded-md', 'shadow-sm')}>
             <div
@@ -48,7 +51,7 @@ export const Search = ({value, onChange}: Props) => {
                     'text-sm',
                     'leading-6',
                 )}
-                placeholder="Search blocks..."
+                placeholder={textOptions?.searchPlaceholder ?? 'Search blocks...'}
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
             />
