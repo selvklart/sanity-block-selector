@@ -1,4 +1,7 @@
-# sanity-block-selector
+# @selvklart/sanity-block-selector
+
+![NPM Version](https://img.shields.io/npm/v/%40selvklart%2Fsanity-block-selector)
+
 
 ## Description:
 
