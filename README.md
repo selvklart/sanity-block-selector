@@ -1,6 +1,6 @@
 # @selvklart/sanity-block-selector
 
-![NPM Version](https://img.shields.io/npm/v/%40selvklart%2Fsanity-block-selector)
+![NPM Version](https://img.shields.io/npm/v/%40selvklart%2Fsanity-block-selector?link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40selvklart%2Fsanity-block-selector)
 
 
 ## Description:
