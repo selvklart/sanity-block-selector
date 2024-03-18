@@ -76,11 +76,13 @@ const Render = (props: PortableTextInputProps & {options: Options}) => {
                 newPortableText.splice(focusedIndex + 1, 0, {
                     _key: uuid(),
                     _type: block.name,
+                    ...(block.initialValue ?? {}),
                 });
             } else {
                 newPortableText.push({
                     _key: uuid(),
                     _type: block.name,
+                    ...(block.initialValue ?? {}),
                 });
             }
             props.onChange(set(newPortableText));

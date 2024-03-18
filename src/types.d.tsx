@@ -10,7 +10,10 @@ export type Block = {
     title: string;
     description?: string;
     imageURL?: URL;
+    initialValue: InitialValue;
 };
+
+export type InitialValue = Record<string, unknown> | null;
 
 export type Options = {
     /**

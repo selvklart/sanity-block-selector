@@ -1,9 +1,9 @@
 import type {ClassValue} from 'clsx';
 import clsx from 'clsx';
-import type {SchemaTypeDefinition} from 'sanity';
+import type {FieldDefinition, SchemaTypeDefinition} from 'sanity';
 import {twMerge} from 'tailwind-merge';
 
-import type {Block, Group, Options} from './types.d';
+import type {Block, Group, InitialValue, Options} from './types.d';
 
 export const cn = (...inputs: ClassValue[]) => {
     return twMerge(clsx(inputs));
@@ -75,10 +75,12 @@ export const schemaAndOptionsToGroups = (
                         ) && !excludedBlocks?.includes(block.name),
                 )
                 .map((block): Block => {
+                    const initialValue = getSchemaInitialValues(block);
                     return {
                         _key: block.name,
                         name: block.name,
                         title: block.title ?? '',
+                        initialValue,
                     };
                 }),
         });
@@ -98,6 +100,7 @@ const schemaAndOptionsGroupToBlocks = (
     // Map the definitions to blocks
     const groupBlocks = definitions.map((definition) => {
         const definitionOption = group.blocks[definition.name];
+        const initialValue = getSchemaInitialValues(definition);
         return {
             _key: definition.name,
             name: definition.name,
@@ -106,8 +109,34 @@ const schemaAndOptionsGroupToBlocks = (
             imageURL: definitionOption?.imageURL
                 ? new URL(definitionOption.imageURL, window.location.origin)
                 : undefined,
+            initialValue,
         };
     });
 
     return groupBlocks;
+};
+
+const getSchemaInitialValues = (
+    schemaDefinition: SchemaTypeDefinition | FieldDefinition,
+): InitialValue => {
+    if ('fields' in schemaDefinition) {
+        return (
+            schemaDefinition.fields?.reduce((acc, field) => {
+                const nestedFields =
+                    typeof field.type === 'string'
+                        ? field.initialValue
+                        : // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          getSchemaInitialValues((field as any).type as SchemaTypeDefinition);
+
+                return {
+                    ...acc,
+                    [field.name]: nestedFields,
+                };
+            }, {} as InitialValue) ?? null
+        );
+    } else if ('initialValue' in schemaDefinition) {
+        return schemaDefinition.initialValue;
+    }
+
+    return null;
 };
