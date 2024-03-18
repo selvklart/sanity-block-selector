@@ -1,11 +1,12 @@
 {
   "name": "@selvklart/sanity-block-selector",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "type": "module",
   "source": "src/index.tsx",
   "main": "dist/main.js",
   "types": "dist/types.d.ts",
   "description": "A custom block selector for Sanity",
+  "repository": "https://github.com/selvklart/sanity-block-selector",
   "scripts": {
     "start": "cosmos",
     "export": "cosmos-export",

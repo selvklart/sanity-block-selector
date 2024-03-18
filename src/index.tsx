@@ -39,7 +39,6 @@ export const WithBlockSelector = (options: Options) =>
             <ThemeProvider theme={theme}>
                 <div id={id} ref={setContainer} className={cn('contents')}>
                     {renderDefault(props)}
-                    <Render {...props} options={options} />
                     {hideQueries.map((query) => (
                         <Replacer
                             key={query}
