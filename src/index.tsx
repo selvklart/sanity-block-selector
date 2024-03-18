@@ -11,7 +11,7 @@ import {Replacer} from './sanity/replacer';
 import type {Block, Options} from './types.d';
 import {cn, schemaAndOptionsToGroups} from './utils';
 
-import '../index.css';
+import './index.css';
 
 const portableTextReplaceQueries = [
     '& > [data-testid="insert-menu-button"]',
