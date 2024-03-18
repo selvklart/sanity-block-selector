@@ -53,7 +53,12 @@ export type Options = {
      * The default queries depend on the type prop, and should work for most cases.
      * But if they don't you have the freedom to override them.
      */
-    replaceQueries?: string[];
+    replaceQueries?: ReplaceQuery[];
+};
+
+export type ReplaceQuery = {
+    level: 'document' | 'field';
+    query: string;
 };
 
 export type TextOptions = {

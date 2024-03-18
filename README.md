@@ -37,7 +37,7 @@ With the `text` field, you can override all of the hardcoded text values in the 
 - `searchPlaceholder`: the placeholder of the search input in the dialog
 - `other`: the name of the `Other` tab
 
-With the `replaceQueries`field, you can replace the default queries for replacing the built-in block selector buttons in Sanity. By default, this the default queries should work, so you shouldn't need to change this. But you have the flexibility to do so if you need to. (This is useful in case Sanity changes the layout of the Studio, and this package doesn't manage to stay up to date with it.).
+With the `replaceQueries`field, you can replace the default queries for replacing the built-in block selector buttons in Sanity. By default, the default queries should work, so you shouldn't need to change this. But you have the flexibility to do so if you need to. (This is useful in case Sanity changes the layout of the Studio, and this package doesn't manage to stay up to date with it.).
 
 These queries depend on the `type` option.
 
@@ -68,8 +68,14 @@ These queries depend on the `type` option.
                 addItem: 'Legg til blokk',
             },
             replaceQueries: [
-                '& > [data-testid="insert-menu-button"]',
-                'div[data-testid="document-panel-portal"] #menu-button[data-testid="insert-menu-button"]',
+                {
+                    level: 'field',
+                    query: '[data-testid="insert-menu-auto-collapse-menu"] [data-testid="insert-menu-button"]',
+                },
+                {
+                    level: 'document',
+                    query: 'div[data-testid="document-panel-portal"] #menu-button[data-testid="insert-menu-button"]',
+                },
             ]
         })
     }

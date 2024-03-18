@@ -8,18 +8,24 @@ import {BlockSelectorContextProvider} from './components/provider';
 import {ContentArrayButton} from './sanity/content-array-button';
 import {PortableTextButton} from './sanity/portable-text-button';
 import {Replacer} from './sanity/replacer';
-import type {Block, Options} from './types.d';
+import type {Block, Options, ReplaceQuery} from './types.d';
 import {cn, schemaAndOptionsToGroups} from './utils';
 
 import './index.css';
 
-const portableTextReplaceQueries = [
-    '& > [data-testid="insert-menu-button"]',
-    'div[data-testid="document-panel-portal"] #menu-button[data-testid="insert-menu-button"]',
+const portableTextReplaceQueries: ReplaceQuery[] = [
+    {
+        level: 'field',
+        query: '[data-testid="insert-menu-auto-collapse-menu"] [data-testid="insert-menu-button"]',
+    },
+    {
+        level: 'document',
+        query: 'div[data-testid="document-panel-portal"] #menu-button[data-testid="insert-menu-button"]',
+    },
 ];
 
-const contentArrayReplaceQueries = [
-    '& > [data-ui="Stack"] > [data-ui="Grid"] > [data-ui="MenuButton"]',
+const contentArrayReplaceQueries: ReplaceQuery[] = [
+    {level: 'field', query: '& > [data-ui="Stack"] > [data-ui="Grid"] > [data-ui="MenuButton"]'},
 ];
 
 export const WithBlockSelector = (options: Options) =>
@@ -39,10 +45,10 @@ export const WithBlockSelector = (options: Options) =>
             <ThemeProvider theme={theme}>
                 <div id={id} ref={setContainer} className={cn('contents')}>
                     {renderDefault(props)}
-                    {hideQueries.map((query) => (
+                    {hideQueries.map(({level, query}) => (
                         <Replacer
                             key={query}
-                            root={container}
+                            root={level === 'document' ? document : container}
                             hideQuery={query}
                             replacementNode={<Render {...props} options={options} />}
                         />
