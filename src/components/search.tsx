@@ -52,7 +52,7 @@ export const Search = ({value, onChange}: Props) => {
                     '!leading-6',
                     '!bg-inherit',
                 )}
-                placeholder={textOptions?.searchPlaceholder ?? 'Search blocks...'}
+                placeholder={textOptions?.searchPlaceholder ?? 'Search'}
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
             />

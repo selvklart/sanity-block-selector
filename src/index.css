@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[data-ui="DialogCard"] > [data-ui="Card"] > [data-ui="Flex"] {
+    @apply static;
+    @apply items-end;
+}
+
+[data-ui="DialogCard"] > [data-ui="Card"] > [data-ui="Flex"] > [data-ui="Box"]:first-child {
+    @apply bg-transparent;
+    @apply w-16;
+}
+
+[data-ui="DialogCard"] > [data-ui="Card"] > [data-ui="Flex"] > [data-ui="Box"]:first-child [data-ui="Button"] {
+    @apply bg-transparent;
+}
+
+[data-ui="DialogCard"] > [data-ui="Card"] > [data-ui="Flex"] > [data-ui="Box"]:nth-child(2) {
+    @apply -mt-[49px];
+    @apply w-full;
+}

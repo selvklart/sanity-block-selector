@@ -35,7 +35,7 @@ export const BlockButton = ({block}: Props) => {
                 'gap-1',
                 'rounded',
                 'p-8',
-                'hover:enabled:bg-stone-300/10',
+                'hover:bg-stone-600/10',
             )}
             onClick={() => onSelectBlock(block)}
         >

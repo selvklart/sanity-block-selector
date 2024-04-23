@@ -9,6 +9,16 @@ export const cn = (...inputs: ClassValue[]) => {
     return twMerge(clsx(inputs));
 };
 
+export const filterBlockByString = (block: Block, filter: string) => {
+    if (filter.length === 0) {
+        return true;
+    }
+    const title = block.title.toLocaleLowerCase();
+    const description = block.description?.toLocaleLowerCase();
+    const filterLower = filter.toLocaleLowerCase();
+    return title.includes(filterLower) || (description && description.includes(filterLower));
+};
+
 export const isImageValid = async (url: URL) => {
     return new Promise<boolean>((resolve) => {
         const img = new Image();

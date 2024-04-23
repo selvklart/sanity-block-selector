@@ -10,7 +10,7 @@ export type Block = {
     title: string;
     description?: string;
     imageURL?: URL;
-    initialValue: InitialValue;
+    initialValue?: InitialValue;
 };
 
 export type InitialValue = Record<string, unknown> | null;
@@ -67,6 +67,7 @@ export type ReplaceQuery = {
 export type TextOptions = {
     addItem?: string;
     dialogTitle?: string;
+    noResults?: string;
     searchPlaceholder?: string;
     other?: string;
 };

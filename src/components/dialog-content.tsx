@@ -3,16 +3,18 @@ import {useEffect, useState} from 'react';
 import type {Group} from '../types.d';
 import {cn} from '../utils';
 
-import {Accordion} from './accordion';
+import {BlockList} from './block-list';
+import {GroupsList} from './groups-list';
 import {Search} from './search';
-import {SearchResults} from './search-results';
 
 interface Props {
+    title: string;
     groups: Group[];
     filter?: string;
 }
 
-export const DialogContent = ({groups, filter = ''}: Props) => {
+export const DialogContent = ({title, groups, filter = ''}: Props) => {
+    const [activeGroup, setActiveGroup] = useState<Group | null>(null);
     const [value, setValue] = useState(filter);
     const [ref, setRef] = useState<HTMLDivElement | null>(null);
 
@@ -22,10 +24,20 @@ export const DialogContent = ({groups, filter = ''}: Props) => {
     }, [ref]);
 
     return (
-        <div className={cn('px-8', 'pb-8', 'pt-3')} ref={setRef}>
-            <Search value={value} onChange={setValue} />
-            <SearchResults groups={groups} filter={value} />
-            <Accordion groups={groups} filter={value} />
+        <div className={cn('flex', 'z-10', 'h-full')} ref={setRef}>
+            <div className={cn('p-4')}>
+                <Search value={value} onChange={setValue} />
+                <GroupsList
+                    groups={groups}
+                    filter={value}
+                    activeGroup={activeGroup}
+                    setActiveGroup={setActiveGroup}
+                />
+            </div>
+            <div className={cn('flex-1', 'p-8', 'bg-zinc-100')}>
+                <div className={cn('text-lg', 'font-bold')}>{title}</div>
+                <BlockList groups={groups} filter={value} activeGroup={activeGroup} />
+            </div>
         </div>
     );
 };
