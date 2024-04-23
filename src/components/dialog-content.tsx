@@ -34,9 +34,34 @@ export const DialogContent = ({title, groups, filter = ''}: Props) => {
                     setActiveGroup={setActiveGroup}
                 />
             </div>
-            <div className={cn('flex-1', 'p-8', 'bg-zinc-100')}>
-                <div className={cn('text-lg', 'font-bold')}>{title}</div>
-                <BlockList groups={groups} filter={value} activeGroup={activeGroup} />
+            <div className={cn('flex-1', 'bg-card-bg')}>
+                <div
+                    className={cn(
+                        'h-full',
+                        'w-full',
+                        'p-8',
+                        'bg-zinc-500/10',
+                        'overflow-auto',
+                        'relative',
+                    )}
+                >
+                    <div
+                        className={cn(
+                            'text-lg',
+                            'font-bold',
+                            'sticky',
+                            'z-10',
+                            '-top-8',
+                            'bg-card-bg',
+                            '-m-8',
+                        )}
+                    >
+                        <div className={cn('h-full', 'w-full', 'p-8', 'bg-zinc-500/10')}>
+                            {title}
+                        </div>
+                    </div>
+                    <BlockList groups={groups} filter={value} activeGroup={activeGroup} />
+                </div>
             </div>
         </div>
     );

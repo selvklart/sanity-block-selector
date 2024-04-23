@@ -7,6 +7,7 @@ export default {
         extend: {
             colors: {
                 'card-border': `var(--card-border-color, ${colors.gray[300]})`,
+                'card-bg': `var(--card-bg-color, ${colors.white})`,
                 'card-fg': `var(--card-fg-color, ${colors.gray[900]})`,
                 'card-muted-fg': `var(--card-muted-fg-color, ${colors.gray[500]})`,
             },

@@ -79,12 +79,12 @@ const Button = ({title, active, count, onClick}: ButtonProps) => {
                 'rounded',
                 'w-full',
                 'gap-8',
-                active ? ['bg-blue-600', 'text-white'] : 'hover:bg-blue-50',
+                active ? ['bg-blue-500', 'text-card-bg'] : 'hover:bg-blue-500/30',
             )}
             onClick={onClick}
         >
             <div>{title}</div>
-            <div className={cn(active ? 'text-gray-200' : 'text-gray-500')}>{count}</div>
+            <div className={cn(active ? 'text-card-bg' : 'text-card-muted-fg')}>{count}</div>
         </button>
     );
 };

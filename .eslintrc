@@ -29,7 +29,13 @@
 		"tailwindcss",
 		"simple-import-sort"
 	],
-	"ignorePatterns": ["dev-dist/**/*.*", "dist/**/*.*", "node_modules/**/*.*"],
+	"ignorePatterns": [
+		"dev-dist/**/*.*",
+		"dist/**/*.*",
+		"node_modules/**/*.*",
+		"**/theme-dark.js",
+		"**/theme-light.js"
+	],
 	"settings": {
 		"react": {
 			"version": "detect"

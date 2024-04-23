@@ -38,11 +38,13 @@ export const BlockList = ({groups, filter = '', activeGroup}: Props) => {
             (blocks?.plain.length ?? 0) ===
         0
     ) {
-        return <div className={cn('mt-8', 'italic')}>{textOptions?.noResults ?? 'No results'}</div>;
+        return (
+            <div className={cn('mt-12', 'italic')}>{textOptions?.noResults ?? 'No results'}</div>
+        );
     }
 
     return (
-        <ul className={cn('mt-8', 'space-y-4')}>
+        <ul className={cn('mt-12', 'space-y-4')}>
             <BlockGroup blocks={blocks?.withImage} />
             <BlockGroup blocks={blocks?.withDescription} />
             <BlockGroup blocks={blocks?.plain} />

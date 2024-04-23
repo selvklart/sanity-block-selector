@@ -9,7 +9,7 @@ import '../../src/index.css';
 const ComponentsDecorator = ({children}: PropsWithChildren) => {
     const theme = buildTheme();
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider scheme={'light'} theme={theme}>
             <div className={cn('p-24')}>{children}</div>
         </ThemeProvider>
     );
