@@ -25,7 +25,7 @@ export const GroupButton = ({
     return (
         <Button
             title={title}
-            active={activeGroup === group}
+            active={activeGroup?.title === group.title}
             count={blockCount}
             onClick={() => setActiveGroup(group)}
         />

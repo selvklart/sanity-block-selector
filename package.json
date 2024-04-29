@@ -1,6 +1,6 @@
 {
   "name": "@selvklart/sanity-block-selector",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "type": "module",
   "source": "src/index.tsx",
   "main": "dist/main.js",
@@ -11,6 +11,7 @@
     "start": "cosmos",
     "export": "cosmos-export",
     "build": "parcel build --no-cache",
+    "build:watch": "parcel watch --no-cache",
     "prepublishOnly": "bun run build"
   },
   "files": [

@@ -15,7 +15,13 @@ export const Dialog = ({groups, onClose}: Props) => {
     const id = useId();
     const {textOptions} = useContext(BlockSelectorContext);
     return (
-        <SanityDialog id={id} onClose={onClose} zOffset={200} width={2} className={cn('static')}>
+        <SanityDialog
+            id={id}
+            onClose={onClose}
+            zOffset={200}
+            width={2}
+            className={cn('block-selector')}
+        >
             <DialogContent title={textOptions?.dialogTitle ?? 'Select block'} groups={groups} />
         </SanityDialog>
     );
