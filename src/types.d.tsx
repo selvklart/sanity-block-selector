@@ -13,7 +13,7 @@ export type Block = {
     initialValue?: InitialValue;
 };
 
-export type InitialValue = Record<string, unknown> | null;
+export type InitialValue = Record<string, unknown> | undefined;
 
 export type Options = {
     /**

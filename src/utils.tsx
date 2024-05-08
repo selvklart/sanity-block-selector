@@ -142,11 +142,11 @@ const getSchemaInitialValues = (
                     ...acc,
                     [field.name]: nestedFields,
                 };
-            }, {} as InitialValue) ?? null
+            }, {} as InitialValue) ?? undefined
         );
     } else if ('initialValue' in schemaDefinition) {
         return schemaDefinition.initialValue;
     }
 
-    return null;
+    return undefined;
 };
