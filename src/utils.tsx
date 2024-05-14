@@ -148,5 +148,14 @@ const getSchemaInitialValues = (
         return schemaDefinition.initialValue;
     }
 
+    // Set an initial empty array value for array types
+    if (
+        schemaDefinition.type === 'array' ||
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (schemaDefinition as any).type?.jsonType === 'array'
+    ) {
+        return [];
+    }
+
     return undefined;
 };
